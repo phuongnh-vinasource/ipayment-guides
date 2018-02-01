@@ -102,6 +102,7 @@
             <li><a href="#staging">Staging</a></li>
             <li><a href="#production">Production</a></li>
             <li><a href="#devservice">DevService</a></li>
+            <li><a href="#postgresql">PostgreSQL</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -109,7 +110,8 @@
 <h1 id="welcome-to-ipayment">Welcome to iPayment</h1>
 <h2 id="staging">Staging</h2>
 <h2 id="production">Production</h2>
-<h2 id="devservice">DevService</h2></div>
+<h2 id="devservice">DevService</h2>
+<h2 id="postgresql">PostgreSQL</h2></div>
         </div>
 
         <footer class="col-md-12">
@@ -192,5 +194,5 @@
 
 <!--
 MkDocs version : 0.17.1
-Build Date UTC : 2018-02-01 14:46:16
+Build Date UTC : 2018-02-01 15:54:34
 -->

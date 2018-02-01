@@ -1,0 +1,134 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to iPayment\n\n\nStaging\n\n\nProduction\n\n\nDevService\n\n\nPostgreSQL", 
+            "title": "Servers"
+        }, 
+        {
+            "location": "/#welcome-to-ipayment", 
+            "text": "", 
+            "title": "Welcome to iPayment"
+        }, 
+        {
+            "location": "/#staging", 
+            "text": "", 
+            "title": "Staging"
+        }, 
+        {
+            "location": "/#production", 
+            "text": "", 
+            "title": "Production"
+        }, 
+        {
+            "location": "/#devservice", 
+            "text": "", 
+            "title": "DevService"
+        }, 
+        {
+            "location": "/#postgresql", 
+            "text": "", 
+            "title": "PostgreSQL"
+        }, 
+        {
+            "location": "/setup-environment/", 
+            "text": "Setup Environment For Developer\n\n\nEnvironment: \nMacOS\n\n\nRuby: \n1.9.3-p194\n\n\nCore installations\n\n\nCreate file \n.ipayment\n at root directory, and add this to \n.iPayment\n\n\nexport ARCHFLAGS=\"-arch x86_64\"\nexport PATH=/usr/local/bin:$PATH\n\n\n\nEdit file \n.bashrc\n\n\nsource ~/.iPayment\n\n\n\nReload \n.bashrc\n    \n\n\n$ source ~/.bashrc\n\n\n\n\nInstall Working Environment\n\n\n\n\nInstall \nbrew\n on \nterminal\n\n\n\n\n$ ruby -e \n$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)\n\n\n$ brew doctor\n\n$ brew tap homebrew/dupes\n\n\n\n\n\n\nInstall library with \nbrew\n\n\n\n\n$ brew install bash curl wget git\n\n$ brew install apple-gcc42\n\n$ brew install autoconf automake libtool pkg-config openssl readline libyaml sqlite libxml2 libxslt libksba\n\n$ brew install geos proj gdal\n\n$ brew install imagemagick\n\n\n\n\nInstall Ruby\n\n\n$ wget https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.zip\n\n$ tar -zxvf ruby-1.9.3-p194.zip\n\n$ cd ruby-1.9.3-p194.zip\n\n$ ./configure\n\n$ make\n\n$ sudo make install\n\n\n\n\nBy default, this will install Ruby into \n/usr/local\n. To change, pass the \n--prefix=DIR\n option to the \n./configure\n script.\nReference: \nInstallation Ruby from source\n\n\nInstall PostgreSQL via PostGIS\n\n\n$ brew install postgis\n\n\n\n\nInstall MongoDB\n\n\n$ brew install mongodb\n\n\n\n\nInstall Redis\n\n\n$ brew install redis\n\n\n\n\nReference: \nDeveloper Workstation Setup", 
+            "title": "Setup Environment"
+        }, 
+        {
+            "location": "/setup-environment/#setup-environment-for-developer", 
+            "text": "Environment:  MacOS  Ruby:  1.9.3-p194", 
+            "title": "Setup Environment For Developer"
+        }, 
+        {
+            "location": "/setup-environment/#core-installations", 
+            "text": "Create file  .ipayment  at root directory, and add this to  .iPayment  export ARCHFLAGS=\"-arch x86_64\"\nexport PATH=/usr/local/bin:$PATH  Edit file  .bashrc  source ~/.iPayment  Reload  .bashrc       $ source ~/.bashrc", 
+            "title": "Core installations"
+        }, 
+        {
+            "location": "/setup-environment/#install-working-environment", 
+            "text": "Install  brew  on  terminal   $ ruby -e  $(curl -fsSL https://raw.github.com/mxcl/homebrew/go) \n\n$ brew doctor\n\n$ brew tap homebrew/dupes   Install library with  brew   $ brew install bash curl wget git\n\n$ brew install apple-gcc42\n\n$ brew install autoconf automake libtool pkg-config openssl readline libyaml sqlite libxml2 libxslt libksba\n\n$ brew install geos proj gdal\n\n$ brew install imagemagick", 
+            "title": "Install Working Environment"
+        }, 
+        {
+            "location": "/setup-environment/#install-ruby", 
+            "text": "$ wget https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.zip\n\n$ tar -zxvf ruby-1.9.3-p194.zip\n\n$ cd ruby-1.9.3-p194.zip\n\n$ ./configure\n\n$ make\n\n$ sudo make install  By default, this will install Ruby into  /usr/local . To change, pass the  --prefix=DIR  option to the  ./configure  script.\nReference:  Installation Ruby from source", 
+            "title": "Install Ruby"
+        }, 
+        {
+            "location": "/setup-environment/#install-postgresql-via-postgis", 
+            "text": "$ brew install postgis", 
+            "title": "Install PostgreSQL via PostGIS"
+        }, 
+        {
+            "location": "/setup-environment/#install-mongodb", 
+            "text": "$ brew install mongodb", 
+            "title": "Install MongoDB"
+        }, 
+        {
+            "location": "/setup-environment/#install-redis", 
+            "text": "$ brew install redis  Reference:  Developer Workstation Setup", 
+            "title": "Install Redis"
+        }, 
+        {
+            "location": "/dev-service/", 
+            "text": "Dev Service\n\n\nCore installations\n\n\nGenerate \nssh\n key for \nDev Service\n\n\n$ ssh-keygen\n\n\n\n\nSend to iPayment's admin this \nssh key\n created and \nyour_username\n, \npassword\n\n\nAfter, iPayment's admin build new \nDevService Account\n, please configure \nrubygems\n with your \ncredentials\n\n\n$ gem sources -a 'http://your_username:my_password@git.intranet.pirq.com/gems/'\n\n\n\n\nInstall GpTool\n\n\n$ gem install gp_devtools\n\n\n\n\nInitialize GPTool with your info\n\n\n$ gptool self-init -u \nyour_username\n -c ~/Pirq\n\n\n\n\n~/.Pirq\n can change another path\n\n\nCreate a database user in Postgres\n\n\n$ createuser -U postgres -d pirq\n\n$ createdb -U postgres -O pirq pirq_development\n\n$ psql -U postgres -d pirq_development -c \nCREATE EXTENSION postgis;\n\n\n$ psql -U postgres -d pirq_development -c \nGRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO pirq;\n\n\n$ psql -U postgres -d pirq_development -c \nGRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO pirq;\n\n\n$ psql -U postgres -d pirq_development -c \nALTER VIEW public.geometry_columns OWNER TO pirq;\n\n\n$ psql -U postgres -d pirq_development -c \nALTER VIEW public.geography_columns OWNER TO pirq;", 
+            "title": "Dev Service"
+        }, 
+        {
+            "location": "/dev-service/#dev-service", 
+            "text": "", 
+            "title": "Dev Service"
+        }, 
+        {
+            "location": "/dev-service/#core-installations", 
+            "text": "Generate  ssh  key for  Dev Service  $ ssh-keygen  Send to iPayment's admin this  ssh key  created and  your_username ,  password  After, iPayment's admin build new  DevService Account , please configure  rubygems  with your  credentials  $ gem sources -a 'http://your_username:my_password@git.intranet.pirq.com/gems/'  Install GpTool  $ gem install gp_devtools  Initialize GPTool with your info  $ gptool self-init -u  your_username  -c ~/Pirq  ~/.Pirq  can change another path", 
+            "title": "Core installations"
+        }, 
+        {
+            "location": "/dev-service/#create-a-database-user-in-postgres", 
+            "text": "$ createuser -U postgres -d pirq\n\n$ createdb -U postgres -O pirq pirq_development\n\n$ psql -U postgres -d pirq_development -c  CREATE EXTENSION postgis; \n\n$ psql -U postgres -d pirq_development -c  GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO pirq; \n\n$ psql -U postgres -d pirq_development -c  GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO pirq; \n\n$ psql -U postgres -d pirq_development -c  ALTER VIEW public.geometry_columns OWNER TO pirq; \n\n$ psql -U postgres -d pirq_development -c  ALTER VIEW public.geography_columns OWNER TO pirq;", 
+            "title": "Create a database user in Postgres"
+        }, 
+        {
+            "location": "/gptool/", 
+            "text": "iPayment: GPTool\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "GPTool"
+        }, 
+        {
+            "location": "/gptool/#ipayment-gptool", 
+            "text": "", 
+            "title": "iPayment: GPTool"
+        }, 
+        {
+            "location": "/gptool/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/gptool/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }, 
+        {
+            "location": "/schema/campaigns/schema/", 
+            "text": "iPayment: Developer Workstation Setup\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Schema"
+        }, 
+        {
+            "location": "/schema/campaigns/schema/#ipayment-developer-workstation-setup", 
+            "text": "", 
+            "title": "iPayment: Developer Workstation Setup"
+        }, 
+        {
+            "location": "/schema/campaigns/schema/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/schema/campaigns/schema/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }
+    ]
+}

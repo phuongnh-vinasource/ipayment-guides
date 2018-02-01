@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to iPayment\n\n\nStaging\n\n\nProduction\n\n\nDevService", 
+            "text": "Welcome to iPayment\n\n\nStaging\n\n\nProduction\n\n\nDevService\n\n\nPostgreSQL", 
             "title": "Servers"
         }, 
         {
@@ -24,6 +24,11 @@
             "location": "/#devservice", 
             "text": "", 
             "title": "DevService"
+        }, 
+        {
+            "location": "/#postgresql", 
+            "text": "", 
+            "title": "PostgreSQL"
         }, 
         {
             "location": "/setup-environment/", 
